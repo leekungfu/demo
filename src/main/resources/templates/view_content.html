@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="main">
+  <div class="header border-bottom">
+    <h1>View Content</h1>
+  </div>
+  <div class="view-form border">
+    <form action="${pageContext.request.contextPath}/view" method="post">
+      <div class="view-form-input view-form__header">
+        <label class="view-header">View Content List</label>
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Brief</th>
+          <th>Created Date</th>
+        </tr>
+        </thead>
+        <forEach var="element" items="${list}">
+          <tbody>
+          <tr>
+            <td><value="${element.id}"/></td>
+            <td><value="${element.title}"/></td>
+            <td><value="${element.brief}"/></td>
+            <td><value="${element.createdDate}"/></td>
+            <td><a class="delete" href="delete?id=${element.id}" id="delete-content">Delete</a></td>
+          </tr>
+          </tbody
+        </forEach>
+      </table>
+    </form>
+  </div>
+</div>
+</body>
+</html>
